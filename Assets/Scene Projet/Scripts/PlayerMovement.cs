@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 0.2f;
-    
-   // Start is called before the first frame update
+
+    // Start is called before the first frame update
     void Start()
     {
 
@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move(); 
+        Move();
     }
 
     private void Move()
@@ -28,7 +28,19 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(0f, 0f, -speed * Time.deltaTime);
         }
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+        {
+            transform.Translate(-speed * Time.deltaTime, 0f, 0f);
 
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+            {
+                transform.Translate(-speed * Time.deltaTime, 0f, 0f);
+            }
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            {
+                transform.Translate(0f, speed * Time.deltaTime, 0f);
+            }
 
+        }
     }
 }
